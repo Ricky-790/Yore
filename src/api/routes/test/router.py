@@ -2,9 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.concurrency import run_in_threadpool
 
-from src.connector.gmail.service import fetch_emails, parse_time_span
+from src.connector.gmail.service import fetch_emails
 from src.db.database import get_session
 from src.db.services.accounts import get_google_token
+from src.ingestion.utils import parse_time_span
 
 router = APIRouter(prefix="/test", tags=["test"])
 
